@@ -1,0 +1,21 @@
+ bool isIsomorphic(string s, string t) {
+       unordered_map<char,char> check;
+        unordered_map<char,bool> present;
+        for(int i=0;i<s.size();i++){
+           if(check.count(s[i])){
+                if(check[s[i]]!=t[i])
+                    return false;
+            }
+            if(!present[t[i]]){
+               present[t[i]]=true;
+               check[s[i]]=t[i];
+           }
+            else{
+                if(check[s[i]]!=t[i]){
+                    return false;
+                }
+            }
+            
+        }
+        return true;
+    }
